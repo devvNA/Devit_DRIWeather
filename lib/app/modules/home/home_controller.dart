@@ -36,6 +36,7 @@ class HomeController extends GetxController {
         locationCity.value = address.city!.split(' ').last;
         log('locationCity: ${locationCity.value}');
       } catch (e) {
+        isLoading.value = false;
         log("Error getting address: $e");
         locationCity.value = 'Unable to fetch street name';
       }

@@ -81,31 +81,27 @@ class HomePage extends GetView<HomeController> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 48),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SvgPicture.asset("assets/icons/ic-location.svg"),
-          const SizedBox(width: 20.0),
-          Expanded(
-            flex: 2,
-            child: Text(
-              controller.locationCity.value,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-                shadows: [
-                  Shadow(
-                    color: Colors.black.withOpacity(0.1),
-                    offset: Offset(-2, 3),
-                    blurRadius: 1,
-                  ),
-                ],
-              ),
+          const SizedBox(width: 12.0),
+          Text(
+            controller.locationCity.value,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: [
+                Shadow(
+                  color: Colors.black.withOpacity(0.1),
+                  offset: Offset(-2, 3),
+                  blurRadius: 1,
+                ),
+              ],
             ),
           ),
           _buildSearchButton(),
-          const SizedBox(
-            width: 30.0,
-          ),
           Spacer(),
           InkWell(
             onTap: () {

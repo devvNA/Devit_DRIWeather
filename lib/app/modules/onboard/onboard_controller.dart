@@ -1,5 +1,6 @@
 // ignore_for_file: avoid_print
 
+import 'package:devit_driweather/app/routes/home_routes.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,6 @@ class OnboardController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    locationPermission();
   }
 
   Future<void> locationPermission() async {
@@ -22,6 +22,8 @@ class OnboardController extends GetxController {
 
         return;
       }
+    } else {
+      Get.toNamed(HomeRoutes.home);
     }
   }
 

@@ -87,6 +87,12 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                       ],
                     ),
                     SizedBox(height: 10),
+                    if (controller.isLoading.value)
+                      Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -178,6 +184,12 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                       ),
                     ),
                     SizedBox(height: 12.0),
+                    if (controller.isLoading.value)
+                      Center(
+                        child: CircularProgressIndicator(
+                          color: Colors.white,
+                        ),
+                      ),
                     Expanded(
                       child: Scrollbar(
                         thumbVisibility: true,

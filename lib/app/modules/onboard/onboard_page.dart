@@ -1,5 +1,4 @@
 import 'package:devit_driweather/app/core/widgets/custom_button.dart';
-import 'package:devit_driweather/app/routes/home_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,29 +14,32 @@ class OnboardPage extends GetView<OnboardController> {
         child: Stack(
           children: [
             Image.asset(
-              height: Get.height,
-              width: Get.width,
               "assets/images/onboard-bg.png",
               fit: BoxFit.cover,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: Get.height * 0.4),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.42),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Never get caught\nin the rain again',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xFF494A4B),
+                        InkWell(
+                          onTap: () {
+                            controller.locationPermission();
+                          },
+                          child: const Text(
+                            'Never get caught\nin the rain again',
+                            style: TextStyle(
+                              fontSize: 32,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF494A4B),
+                            ),
                           ),
                         ),
                         const SizedBox(height: 12),
@@ -55,7 +57,7 @@ class OnboardPage extends GetView<OnboardController> {
                               child: CustomButton(
                                 title: 'Get Started',
                                 onTap: () {
-                                  Get.toNamed(HomeRoutes.home);
+                                  controller.locationPermission();
                                 },
                               ),
                             ),
