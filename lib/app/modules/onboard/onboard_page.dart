@@ -13,10 +13,7 @@ class OnboardPage extends GetView<OnboardController> {
       body: Center(
         child: Stack(
           children: [
-            Image.asset(
-              "assets/images/onboard-bg.png",
-              fit: BoxFit.cover,
-            ),
+            Image.asset("assets/images/onboard-bg.png", fit: BoxFit.cover),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
@@ -62,7 +59,7 @@ class OnboardPage extends GetView<OnboardController> {
                               ),
                             ),
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),

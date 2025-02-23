@@ -51,9 +51,9 @@ flutter run
 
 |          Screenshot 1          |          Screenshot 2          |          Screenshot 3          |
 | :----------------------------: | :----------------------------: | :----------------------------: |
-| <img src="1.png" width="230"/> | <img src="2.png" width="230"/> | <img src="3.png" width="230"/> |
+| <img src="1.jpg" width="230"/> | <img src="2.jpg" width="230"/> | <img src="3.jpg" width="230"/> |
 |          Screenshot 4          |          Screenshot 5          |
-| <img src="4.png" width="230"/> | <img src="5.png" width="230"/> |
+| <img src="4.jpg" width="230"/> | <img src="5.jpg" width="230"/> |
 
 ## Persyaratan Sistem
 

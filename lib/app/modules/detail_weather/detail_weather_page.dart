@@ -30,8 +30,10 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                     Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.arrow_back_ios_new,
-                              color: Colors.white),
+                          icon: Icon(
+                            Icons.arrow_back_ios_new,
+                            color: Colors.white,
+                          ),
                           onPressed: () => Get.back(),
                         ),
                         Text(
@@ -89,83 +91,89 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                     SizedBox(height: 10),
                     if (controller.isLoading.value)
                       Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
+                        child: CircularProgressIndicator(color: Colors.white),
                       ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: List.generate(
-                          controller.weatherHourly.length > 5
-                              ? 5
-                              : controller.weatherHourly.length, (index) {
-                        return Expanded(
-                          child: InkWell(
-                            onTap: () => controller.setIndex(index),
-                            child: Obx(() {
-                              return Container(
-                                padding: EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  border: index == controller.index.value
-                                      ? Border.all(
-                                          color: Colors.white.withOpacity(0.3),
-                                          width: 1.5,
-                                        )
-                                      : null,
-                                  borderRadius: BorderRadius.circular(15),
-                                  color: index == controller.index.value
-                                      ? Colors.white.withOpacity(0.2)
-                                      : null,
-                                ),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      '${controller.weatherHourly[index]['values']['temperature']}°C',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 15,
-                                        shadows: [
-                                          Shadow(
-                                            color:
-                                                Colors.black.withOpacity(0.1),
-                                            offset: Offset(-2, 3),
-                                            blurRadius: 1,
-                                          ),
-                                        ],
+                        controller.weatherHourly.length > 5
+                            ? 5
+                            : controller.weatherHourly.length,
+                        (index) {
+                          return Expanded(
+                            child: InkWell(
+                              onTap: () => controller.setIndex(index),
+                              child: Obx(() {
+                                return Container(
+                                  padding: EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    border:
+                                        index == controller.index.value
+                                            ? Border.all(
+                                              color: Colors.white.withOpacity(
+                                                0.3,
+                                              ),
+                                              width: 1.5,
+                                            )
+                                            : null,
+                                    borderRadius: BorderRadius.circular(15),
+                                    color:
+                                        index == controller.index.value
+                                            ? Colors.white.withOpacity(0.2)
+                                            : null,
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        '${controller.weatherHourly[index]['values']['temperature']}°C',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          shadows: [
+                                            Shadow(
+                                              color: Colors.black.withOpacity(
+                                                0.1,
+                                              ),
+                                              offset: Offset(-2, 3),
+                                              blurRadius: 1,
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(height: 24.0),
-                                    Image.asset(
-                                      WeatherUtils.getLargeIconAsset(
-                                        controller.weatherHourly[index]
-                                                ['values']['weatherCode'] ??
-                                            0,
+                                      SizedBox(height: 24.0),
+                                      Image.asset(
+                                        WeatherUtils.getLargeIconAsset(
+                                          controller
+                                                  .weatherHourly[index]['values']['weatherCode'] ??
+                                              0,
+                                        ),
+                                        height: 30,
                                       ),
-                                      height: 30,
-                                    ),
-                                    SizedBox(height: 24.0),
-                                    Text(
-                                      '${DateFormat('HH').format(DateTime.now().subtract(Duration(hours: 2 - index)))}.00',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        shadows: [
-                                          Shadow(
-                                            color:
-                                                Colors.black.withOpacity(0.1),
-                                            offset: Offset(-2, 3),
-                                            blurRadius: 1,
-                                          ),
-                                        ],
+                                      SizedBox(height: 24.0),
+                                      Text(
+                                        '${DateFormat('HH').format(DateTime.now().subtract(Duration(hours: 2 - index)))}.00',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          shadows: [
+                                            Shadow(
+                                              color: Colors.black.withOpacity(
+                                                0.1,
+                                              ),
+                                              offset: Offset(-2, 3),
+                                              blurRadius: 1,
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
-                          ),
-                        );
-                      }),
+                                    ],
+                                  ),
+                                );
+                              }),
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     SizedBox(height: 30),
                     Text(
@@ -186,9 +194,7 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                     SizedBox(height: 12.0),
                     if (controller.isLoading.value)
                       Center(
-                        child: CircularProgressIndicator(
-                          color: Colors.white,
-                        ),
+                        child: CircularProgressIndicator(color: Colors.white),
                       ),
                     Expanded(
                       child: Scrollbar(
@@ -199,9 +205,10 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                           padding: EdgeInsets.only(right: 12.0),
                           child: ListView.builder(
                             padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            itemCount: controller.weatherDaily.length > 10
-                                ? 10
-                                : controller.weatherDaily.length,
+                            itemCount:
+                                controller.weatherDaily.length > 10
+                                    ? 10
+                                    : controller.weatherDaily.length,
                             itemBuilder: (context, index) {
                               return Padding(
                                 padding: EdgeInsets.only(
@@ -216,15 +223,19 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                                   children: [
                                     Text(
                                       DateFormat('MMM, dd').format(
-                                          DateTime.parse(controller
-                                              .weatherDaily[index]['time'])),
+                                        DateTime.parse(
+                                          controller
+                                              .weatherDaily[index]['time'],
+                                        ),
+                                      ),
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 20,
                                         shadows: [
                                           Shadow(
-                                            color:
-                                                Colors.black.withOpacity(0.1),
+                                            color: Colors.black.withOpacity(
+                                              0.1,
+                                            ),
                                             offset: Offset(-2, 3),
                                             blurRadius: 1,
                                           ),
@@ -232,10 +243,11 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                                       ),
                                     ),
                                     Image.asset(
-                                      WeatherUtils.getLargeIconAsset(controller
-                                                  .weatherDaily[index]['values']
-                                              ['weatherCodeMax'] ??
-                                          0),
+                                      WeatherUtils.getLargeIconAsset(
+                                        controller
+                                                .weatherDaily[index]['values']['weatherCodeMax'] ??
+                                            0,
+                                      ),
                                       width: 35,
                                       height: 35,
                                     ),
@@ -246,8 +258,9 @@ class DetailWeatherPage extends GetView<DetailWeatherController> {
                                         fontSize: 20,
                                         shadows: [
                                           Shadow(
-                                            color:
-                                                Colors.black.withOpacity(0.1),
+                                            color: Colors.black.withOpacity(
+                                              0.1,
+                                            ),
                                             offset: Offset(-2, 3),
                                             blurRadius: 1,
                                           ),

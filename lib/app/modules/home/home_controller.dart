@@ -25,7 +25,8 @@ class HomeController extends GetxController {
       locationCity.value = selectedCity;
     } else {
       Position location = await Geolocator.getCurrentPosition(
-          desiredAccuracy: LocationAccuracy.high);
+        desiredAccuracy: LocationAccuracy.high,
+      );
       log('location: ${location.latitude},${location.longitude}');
       try {
         Address address = await geoCode.reverseGeocoding(
